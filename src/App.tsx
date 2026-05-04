@@ -308,23 +308,54 @@ function PersonalitySection() {
   const attributes = [
     { 
       title: 'Analítico', 
-      desc: 'Desglosamos la realidad en componentes lógicos.', 
+      desc: 'Descomponemos la realidad en componentes lógicos y variables cuantificables (LTV, márgenes). Lógica causa-efecto.', 
       icon: Search 
     },
     { 
       title: 'Seguro', 
-      desc: 'Transmitimos la tranquilidad de que los números están bajo control.', 
+      desc: 'Autoridad serena. Transmitimos la tranquilidad de quien ya ha resuelto el problema mil veces.', 
       icon: ShieldCheck 
     },
     { 
       title: 'Moderno / Tech-Savvy', 
-      desc: 'No arrastramos deuda técnica ni burocracia visual.', 
+      desc: 'Uso de IA, SaaS y frameworks actuales. Cero deuda técnica o burocracia verbal.', 
       icon: Zap 
     },
     { 
       title: 'Cómplice', 
-      desc: 'Entendemos el "dolor" de quemar horas en un presupuesto que después no cierra.', 
+      desc: 'Entendemos el dolor real del operador. Usamos humor de insider para conectar con la trinchera.', 
       icon: HeartHandshake 
+    },
+  ];
+
+  const operatingModes = [
+    { 
+      mode: 'REGAÑO', 
+      desc: 'Confrontativo. Rompemos patrones mediocres. 90% Diagnóstico.', 
+      example: '"Si seguís cobrando por hora, tenés un castigo a tu eficiencia."',
+      icon: XCircle,
+      color: '#ff4d4d'
+    },
+    { 
+      mode: 'DIAGNÓSTICO TÉCNICO', 
+      desc: 'Educativo y analítico. Conectamos problemas que el usuario aún no ve.', 
+      example: '"Tu problema no es de ventas, es de Unit Economics mal calculados."',
+      icon: Stethoscope,
+      color: 'var(--primary)'
+    },
+    { 
+      mode: 'GUÍA TÉCNICA', 
+      desc: 'Enfocado en el "cómo". Frameworks y pasos lógicos. 70% Prescripción.', 
+      example: '"Cargá tus costos fijos, definí el margen y usá este comparador."',
+      icon: Target,
+      color: 'var(--accent)'
+    },
+    { 
+      mode: 'COMPLICIDAD', 
+      desc: 'Storytelling y conexión emocional. Bajamos la guardia del espectador.', 
+      example: '"Todos pasamos por ese cliente que pide el cambio número 40."',
+      icon: MessageSquare,
+      color: '#fff'
     },
   ];
 
@@ -333,125 +364,107 @@ function PersonalitySection() {
       <div className="section-header">
         <h2 className="section-title">Personalidad y Arquetipo</h2>
         <p className="section-subtitle">
-          Nuestra identidad se forja en la intersección de la sabiduría técnica y la libertad creativa.
+          Autoridad técnica que habilita la acción concreta. La intersección entre el saber y el hacer.
         </p>
       </div>
 
-      <div className="glass-card mb-5">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-          <div className="logo-icon" style={{ background: 'linear-gradient(135deg, var(--primary), var(--primary-hover))' }}>
-            <Brain size={24} color="#fff" />
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '3rem' }}>
+        <div className="glass-card">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+            <div className="logo-icon" style={{ background: 'linear-gradient(135deg, var(--primary), var(--primary-hover))' }}>
+              <Brain size={24} color="#fff" />
+            </div>
+            <h3 className="color-name" style={{ fontSize: '1.25rem', marginBottom: 0 }}>El Sabio (La Autoridad)</h3>
           </div>
-          <h3 className="color-name" style={{ fontSize: '1.5rem', marginBottom: 0 }}>El Arquetipo: El Sabio + El Creador</h3>
+          <p className="typo-preview-body" style={{ fontSize: '0.95rem' }}>
+            Aporta la autoridad técnica, los números y los frameworks. Habla con una **autoridad serena**, sin necesidad de gritar. Es el experto que tiene todas las respuestas técnicas porque ya estuvo ahí.
+          </p>
         </div>
-        <p className="typo-preview-body" style={{ fontSize: '1.1rem', lineHeight: '1.8' }}>
-          Nougram es la mezcla entre el experto que tiene todas las respuestas técnicas (**Sabio**) y la estructura 
-          que permite que otros creen (**Creador**). 
-          <br /><br />
-          No somos un "banco" frío, pero tampoco somos una "comunidad de artistas" volátil. Somos el punto de 
-          equilibrio donde el orden habilita la innovación.
+        <div className="glass-card">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+            <div className="logo-icon" style={{ background: 'linear-gradient(135deg, var(--primary), var(--primary-hover))' }}>
+              <Box size={24} color="#fff" />
+            </div>
+            <h3 className="color-name" style={{ fontSize: '1.25rem', marginBottom: 0 }}>El Creador (La Estructura)</h3>
+          </div>
+          <p className="typo-preview-body" style={{ fontSize: '0.95rem' }}>
+            No construye por el otro, sino que le da la **arquitectura** y las herramientas para que el otro pueda construir. Su autoridad es de "oficio", de quien sabe cómo se arman las cosas.
+          </p>
+        </div>
+      </div>
+
+      <div className="glass-card mb-5" style={{ background: 'rgba(234, 88, 12, 0.05)', border: '1px solid var(--primary)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+          <Sparkles size={24} className="download-icon" />
+          <h3 className="color-name" style={{ fontSize: '1.25rem', marginBottom: 0 }}>LA REGLA DE ORO</h3>
+        </div>
+        <p className="typo-preview-h1" style={{ fontSize: '1.8rem', color: '#fff', textAlign: 'center', margin: '1rem 0' }}>
+          "Densidad técnica envuelta en lenguaje de bar."
         </p>
       </div>
 
       <div className="section-header" style={{ marginTop: '4rem', marginBottom: '2rem' }}>
-        <h3 className="color-name" style={{ fontSize: '1.25rem', opacity: 0.8 }}>Atributos de Personalidad</h3>
+        <h3 className="color-name" style={{ fontSize: '1.25rem', opacity: 0.8 }}>Los 4 Atributos de Personalidad</h3>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem', marginBottom: '4rem' }}>
         {attributes.map((attr, i) => (
           <div key={attr.title} className={`glass-card delay-${(i+1)*100} animate-slide-in`} style={{ padding: '1.5rem' }}>
             <attr.icon size={28} className="download-icon mb-3" />
             <h4 className="color-name" style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>{attr.title}</h4>
-            <p className="typo-preview-body" style={{ fontSize: '0.95rem', color: 'var(--text-muted)' }}>
+            <p className="typo-preview-body" style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
               {attr.desc}
             </p>
           </div>
         ))}
       </div>
 
-      <div className="section-header" style={{ marginTop: '5rem', marginBottom: '2rem' }}>
-        <h3 className="color-name" style={{ fontSize: '1.25rem', opacity: 0.8 }}>Tono de Voz</h3>
-        <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
-          {['Experto', 'Amigable', 'Humor Sutil', 'Directo'].map((tag, idx) => (
-            <span 
-              key={tag} 
-              className={`badge animate-slide-in delay-${(idx+1)*50}`} 
-              style={{ 
-                fontSize: '0.9rem', 
-                padding: '0.5rem 1rem', 
-                background: 'rgba(243, 93, 10, 0.1)', 
-                border: '1px solid var(--primary)',
-                color: '#fff',
-                letterSpacing: '0.05em',
-                textTransform: 'uppercase'
-              }}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+      <div className="section-header" style={{ marginTop: '4rem', marginBottom: '2rem' }}>
+        <h3 className="color-name" style={{ fontSize: '1.5rem' }}>Sistema de Modos Operativos</h3>
+        <p className="section-subtitle">Cómo modulamos el tono según el objetivo del contenido.</p>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-        <div className="glass-card animate-slide-in delay-500">
-          <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-            <div style={{ flex: 1, minWidth: '300px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                <Volume2 size={24} className="download-icon" />
-                <h4 className="color-name" style={{ marginBottom: 0 }}>Directo y Argento-Profesional</h4>
-              </div>
-              <p className="typo-preview-body" style={{ fontSize: '0.95rem' }}>
-                Usamos términos claros (**"Esto no rinde"**, **"Acá perdés plata"**) sin caer en la jerga incomprensible. 
-                Mantenemos la acentuación rioplatense en la redacción estratégica pero con una pulcritud que funcione en 
-                Bogotá y el resto de la región.
-              </p>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', marginBottom: '4rem' }}>
+        {operatingModes.map((m, i) => (
+          <div key={m.mode} className="glass-card">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+              <m.icon size={20} color={m.color} />
+              <h4 className="color-name" style={{ fontSize: '0.9rem', marginBottom: 0, color: m.color }}>{m.mode}</h4>
             </div>
-            <div style={{ flex: 1, minWidth: '300px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                <XCircle size={24} className="download-icon" />
-                <h4 className="color-name" style={{ marginBottom: 0 }}>Cero Sensacionalismo</h4>
-              </div>
-              <p className="typo-preview-body" style={{ fontSize: '0.95rem' }}>
-                No vendemos "magia". Vendemos estructura. Evitamos adjetivos vacíos como "increíble", "único" o 
-                "revolucionario" a menos que estemos demostrando por qué lo es.
-              </p>
+            <p className="typo-preview-body" style={{ fontSize: '0.85rem', marginBottom: '1rem' }}>{m.desc}</p>
+            <div style={{ fontStyle: 'italic', fontSize: '0.8rem', padding: '0.75rem', background: 'rgba(0,0,0,0.2)', borderRadius: '8px', borderLeft: `3px solid ${m.color}` }}>
+              {m.example}
             </div>
+          </div>
+        ))}
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '2rem' }}>
+        <div className="glass-card">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
+            <Volume2 size={24} className="download-icon" />
+            <h4 className="color-name" style={{ marginBottom: 0 }}>Tono: Argento-Profesional</h4>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', fontSize: '0.9rem' }}>
+             <p>● **Voseo**: Usamos "vos", "sabés", "mirá". Mantenemos la identidad rioplatense pero con pulcritud regional.</p>
+             <p>● **Catchphrases Canónicas**: 
+                <span style={{ color: 'var(--primary)', display: 'block', marginTop: '0.5rem', fontWeight: 600 }}>
+                  "Esto no rinde" • "Acá perdés plata" • "No te da el número"
+                </span>
+             </p>
+             <p>● **Glosario Obligatorio**: EBITDA, Scope Creep, Value-based pricing, Unit Economics, MRR/ARR.</p>
           </div>
         </div>
 
-        <div className="glass-card animate-slide-in delay-600">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-            <MessageSquare size={24} className="download-icon" />
-            <h4 className="color-name" style={{ marginBottom: 0 }}>Humor Sutil (de "insider")</h4>
+        <div className="glass-card">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
+            <XCircle size={24} color="#ff4d4d" />
+            <h4 className="color-name" style={{ marginBottom: 0 }}>Lo que Prohibimos</h4>
           </div>
-          <p className="typo-preview-body" style={{ fontSize: '0.95rem' }}>
-            Un guiño a los problemas clásicos de agencia: el cliente que pide cambios infinitos, 
-            el "para ayer", el presupuesto que se esfuma inexplicablemente.
-          </p>
-        </div>
-
-        {/* Example Box */}
-        <div className="glass-card animate-slide-in delay-700" style={{ borderLeft: '4px solid var(--primary)', background: 'rgba(243, 93, 10, 0.05)' }}>
-          <div className="typo-label" style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <Quote size={14} /> Ejemplo de Tono
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
-            <div style={{ opacity: 0.6 }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#ff4d4d', marginBottom: '0.5rem', fontWeight: 600 }}>
-                <XCircle size={16} /> Mal
-              </div>
-              <p style={{ fontStyle: 'italic', fontSize: '0.95rem' }}>
-                "Nuestra revolucionaria plataforma optimiza tus procesos de facturación de manera increíble."
-              </p>
-            </div>
-            <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--primary)', marginBottom: '0.5rem', fontWeight: 600 }}>
-                <CheckCircle2 size={16} /> Nougram
-              </div>
-              <p style={{ fontSize: '0.95rem' }}>
-                "Dejá de adivinar cuánto cobrar. Cargá tus costos, definí tu margen y enviá una propuesta que no te haga perder plata."
-              </p>
-            </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)' }}>
+             <p>❌ **Verbos Vacíos**: Optimizar, potenciar, sinergia, empoderar, transformar.</p>
+             <p>❌ **Clichés de IA**: "En el dinámico mundo de hoy", "Un futuro brillante te espera".</p>
+             <p>❌ **Sensacionalismo**: "El secreto que los bancos no quieren que sepas".</p>
           </div>
         </div>
       </div>

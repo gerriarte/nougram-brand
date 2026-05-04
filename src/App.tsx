@@ -562,18 +562,39 @@ function PhotographySection() {
     { title: 'The Insight', img: '/photography-interface.png', tag: 'Abstract / Action' },
   ];
 
+  const latinTraits = [
+    {
+      gender: 'Masculino / Male',
+      traits: [
+        { es: 'Rasgos latinoamericanos fuertes y definidos', en: 'strong defined Latin American features' },
+        { es: 'Tono de piel oliva cálido', en: 'warm olive skin tone' },
+        { es: 'Cabello oscuro corto y arreglado', en: 'short groomed dark hair' },
+        { es: 'Ojos marrones expresivos y profundos', en: 'expressive deep-set brown eyes' },
+      ]
+    },
+    {
+      gender: 'Femenino / Female',
+      traits: [
+        { es: 'Rasgos latinoamericanos elegantes', en: 'elegant Latin American features' },
+        { es: 'Tono de piel bronceado por el sol', en: 'sun-kissed tan skin tone' },
+        { es: 'Cabello ondulado largo color obsidiana', en: 'long wavy obsidian hair' },
+        { es: 'Ojos marrones intensos y seguros', en: 'intense confident brown eyes' },
+      ]
+    }
+  ];
+
   return (
     <div className="animate-slide-in">
       <div className="section-header">
         <h2 className="section-title">Fotografía y Estilo</h2>
         <p className="section-subtitle">
-          Cinematográfica, futurista y de alto contraste. Múltiples opciones de construcción unificadas por el fondo degradado Nougram.
+          Actualización del Banco de Prompts: Rasgos Latinos, Chiaroscuro Cinematográfico y Mejoras de Renderizado.
         </p>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
         {gallery.map((item, i) => (
-          <div key={item.title} className={`glass-card delay-${(i+1)*100} animate-slide-in`} style={{ padding: 0, overflow: 'hidden' }}>
+          <div key={item.title} className={`glass-card delay-${(i + 1) * 100} animate-slide-in`} style={{ padding: 0, overflow: 'hidden' }}>
             <div style={{ height: '350px', position: 'relative' }}>
               <img 
                 src={item.img} 
@@ -604,10 +625,35 @@ function PhotographySection() {
         ))}
       </div>
 
+      {/* FORMAT AND QUALITY */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '3rem' }}>
+        <div className="glass-card">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+            <Zap size={20} className="download-icon" />
+            <h4 className="color-name" style={{ marginBottom: 0 }}>Formato y Calidad</h4>
+          </div>
+          <ul style={{ fontSize: '0.9rem', color: 'var(--text-muted)', paddingLeft: '1.2rem' }}>
+            <li><strong>Calidad:</strong> 8k resolution, high detail.</li>
+            <li><strong>Aspect Ratio:</strong> --ar 4:5 (Vertical Editorial).</li>
+            <li><strong>Style:</strong> --style raw (Innegociable).</li>
+          </ul>
+        </div>
+        <div className="glass-card">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+            <Search size={20} className="download-icon" />
+            <h4 className="color-name" style={{ marginBottom: 0 }}>Lo que debemos Evitar</h4>
+          </div>
+          <p style={{ fontSize: '0.85rem', color: '#ff4d4d' }}>
+            Evitar: "Latino look", "Hispanic", "Ethnic", "Spicy", "Exotic". No usar clichés como sombreros o elementos folclóricos fuera de contexto.
+          </p>
+        </div>
+      </div>
+
+      {/* MASTER PROMPT */}
       <div className="glass-card mb-5">
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
           <Lightbulb size={24} className="download-icon" />
-          <h3 className="color-name" style={{ fontSize: '1.25rem', marginBottom: 0 }}>MASTER PROMPT</h3>
+          <h3 className="color-name" style={{ fontSize: '1.25rem', marginBottom: 0 }}>MASTER PROMPT V2 (Latin Focus)</h3>
         </div>
         <div style={{ 
           background: 'rgba(0,0,0,0.3)', 
@@ -619,67 +665,49 @@ function PhotographySection() {
           border: '1px solid var(--glass-border)',
           color: 'var(--accent)'
         }}>
-          "A striking, high-contrast <span style={{ color: 'var(--primary)' }}>[SUBJECT]</span> in deep shadow, viewed in a <span style={{ color: 'var(--primary)' }}>[PROFILE_VIEW]</span> angle, looking <span style={{ color: 'var(--primary)' }}>[VIEW_DIRECTION]</span>. The style is defined by dramatic dual-tone <span style={{ color: 'var(--primary)' }}>[RIM_LIGHTING_TYPE]</span> edge lighting. A strong, vibrant <span style={{ color: 'var(--primary)' }}>[COLOR_1]</span> rim light traces the front profile, while a contrasting, deep <span style={{ color: 'var(--primary)' }}>[COLOR_2]</span> rim light highlights the <span style={{ color: 'var(--primary)' }}>[BACK_FEATURES]</span>. The subject is wearing <span style={{ color: 'var(--primary)' }}>[ACCESSORIES_WITH_REFLECTIONS]</span> that brightly reflect <span style={{ color: 'var(--primary)' }}>[COLOR_1]</span>. Skin and clothing are in deep black shadow. Set against a clean, uncluttered, <span style={{ color: 'var(--primary)' }}>smooth solid orange gradient foreground transitioning to deeper red background</span>. Mood is <span style={{ color: 'var(--primary)' }}>[MOOD]</span>. Focus sharp on lit edges."
+          "A striking, high-contrast <span style={{ color: 'var(--primary)' }}>[Latin American + GENDER + PHYSICAL DESCRIPTOR]</span> in <span style={{ color: 'var(--primary)' }}>[SCENE/ROLE]</span>, in deep shadow, viewed in a <span style={{ color: 'var(--primary)' }}>[ANGLE]</span> angle, <span style={{ color: 'var(--primary)' }}>[ACTION]</span>. The style is defined by dramatic dual-tone <span style={{ color: 'var(--primary)' }}>chiaroscuro edge lighting</span>. A strong, vibrant <span style={{ color: 'var(--primary)' }}>[COLOR 1]</span> rim light traces the front profile, while a contrasting, deep <span style={{ color: 'var(--primary)' }}>[COLOR 2]</span> rim light highlights the edges. Clothing in deep black shadow. Set against a clean, uncluttered, <span style={{ color: 'var(--primary)' }}>smooth solid orange gradient background</span>. Focus sharp on lit edges. Cinematic photography, 8k quality, --style raw --ar 4:5"
         </div>
       </div>
 
-      <div className="glass-card mb-5">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
-          <Fingerprint size={24} className="download-icon" />
-          <h3 className="color-name" style={{ fontSize: '1.25rem', marginBottom: 0 }}>Cómo Rellenar la Plantilla (Guía de Variables)</h3>
-        </div>
-        
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '2rem' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            {[
-              { label: '[SUBJECT]', value: 'Woman (mujer) con el cabello en un moño (bun hairstyle).' },
-              { label: '[PROFILE_VIEW]', value: 'Near-full profile (perfil casi completo).' },
-              { label: '[VIEW_DIRECTION]', value: 'Looking upwards (mirando hacia arriba).' },
-              { label: '[RIM_LIGHTING_TYPE]', value: 'Intense backlit or contour (intensa retroiluminación o contorno).' },
-              { label: '[COLOR_1]', value: 'Vívido, incandescente color rojo-naranja (vivid, glowing red-orange). Contorno frontal.' },
-              { label: '[COLOR_2]', value: 'Azul cian profundo o azul eléctrico (deep cyan or electric blue). Contorno trasero.' },
-            ].map((v) => (
-              <div key={v.label} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.75rem' }}>
-                <span className="typo-label" style={{ fontSize: '0.7rem', color: 'var(--primary)', display: 'block', marginBottom: '0.25rem' }}>{v.label}</span>
-                <p style={{ fontSize: '0.9rem', color: '#fff' }}>{v.value}</p>
-              </div>
-            ))}
-          </div>
-          
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            {[
-              { label: '[BACK_FEATURES]', value: 'El cabello recogido y la línea de la mandíbula trasera.' },
-              { label: '[ACCESSORIES_WITH_REFLECTIONS]', value: 'Black-framed sunglasses con lentes de espejo.' },
-              { label: '[DARK_SILHOUETTE_COLOR]', value: 'Black or near-black deep shadow. Mantiene la cara en sombra.' },
-              { label: '[BACKGROUND_COLOR]', value: 'Smooth, solid orange gradient, transitioning to deeper red.' },
-              { label: '[MOOD]', value: 'Modern, cinematic, cool, futuristic.' },
-            ].map((v) => (
-              <div key={v.label} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.75rem' }}>
-                <span className="typo-label" style={{ fontSize: '0.7rem', color: 'var(--primary)', display: 'block', marginBottom: '0.25rem' }}>{v.label}</span>
-                <p style={{ fontSize: '0.9rem', color: '#fff' }}>{v.value}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+      {/* LATIN REPRESENTATION */}
+      <div className="section-header" style={{ marginTop: '4rem', marginBottom: '2rem' }}>
+        <h3 className="color-name" style={{ fontSize: '1.5rem' }}>Representación Latinoamericana Validada</h3>
+        <p className="section-subtitle" style={{ fontSize: '1rem' }}>
+          Descriptores técnicos para un renderizado auténtico y sin estereotipos.
+        </p>
       </div>
 
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '2rem', marginBottom: '4rem' }}>
+        {latinTraits.map((group, idx) => (
+          <div key={idx} className="glass-card">
+            <h4 className="color-name" style={{ color: 'var(--primary)', marginBottom: '1.5rem' }}>{group.gender}</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              {group.traits.map((trait, tIdx) => (
+                <div key={tIdx} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.75rem' }}>
+                  <span style={{ fontSize: '0.85rem', color: '#fff', display: 'block' }}>{trait.es}</span>
+                  <span style={{ fontSize: '0.8rem', color: 'var(--accent)', fontFamily: 'monospace' }}>{trait.en}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* TECHNICAL DETAILS */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
         <div className="glass-card">
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
             <Layers3 size={20} className="download-icon" />
-            <h4 className="color-name" style={{ marginBottom: 0 }}>Dual-Tone Rim Lighting</h4>
+            <h4 className="color-name" style={{ marginBottom: 0 }}>Dual-Tone Rim Lighting (Chiaroscuro)</h4>
           </div>
           <p className="typo-preview-body" style={{ fontSize: '0.9rem' }}>
-            Nuestra fotografía no usa luz frontal. Se basa estrictamente en la **retroiluminación de contorno** para 
-            dibujar la silueta. El contraste entre el naranja incandescente y el azul eléctrico refuerza el balance 
-            entre calidez creativa y precisión técnica.
+            Uso obligatorio de dos luces de contorno contrastantes. La técnica **Chiaroscuro** asegura que el sujeto emerja de la sombra absoluta, eliminando detalles innecesarios en la ropa o el rostro no iluminado para centrar la atención en la silueta y el gesto.
           </p>
         </div>
         <div className="glass-card" style={{ borderLeft: '4px solid var(--primary)' }}>
-          <h4 className="color-name">Consistencia de Fondo</h4>
+          <h4 className="color-name">Consistencia Cromática</h4>
           <p className="typo-preview-body" style={{ fontSize: '0.9rem' }}>
-            **Innegociable**: Todas las imágenes de marca deben utilizar el degradado naranja a rojo profundo de Nougram. 
-            Esto permite que sujetos radicalmente distintos se sientan parte del mismo ecosistema visual.
+            <strong>Innegociable:</strong> Los fondos deben ser degradados sólidos y suaves (ej. de naranja frontal a rojo profundo). No se permiten fondos con texturas, elementos urbanos o distracciones visuales que rompan la abstracción tecnológica.
           </p>
         </div>
       </div>

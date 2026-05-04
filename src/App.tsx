@@ -16,8 +16,6 @@ import {
   MessageSquare,
   Volume2,
   XCircle,
-  CheckCircle2,
-  Quote,
   Box,
   Layers,
   Fingerprint,
@@ -425,7 +423,7 @@ function PersonalitySection() {
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', marginBottom: '4rem' }}>
-        {operatingModes.map((m, i) => (
+        {operatingModes.map((m) => (
           <div key={m.mode} className="glass-card">
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
               <m.icon size={20} color={m.color} />
